@@ -28,8 +28,6 @@ import android.print.PageRange;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintDocumentInfo;
-import android.support.annotation.NonNull;
-import android.support.v4.print.PrintHelper;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -37,6 +35,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import static android.print.PrintDocumentInfo.CONTENT_TYPE_DOCUMENT;
+
+import androidx.annotation.NonNull;
+import androidx.print.PrintHelper;
 
 /**
  * Document adapter to render and print PDF files.

@@ -27,9 +27,6 @@ import android.graphics.Bitmap;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintJob;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.print.PrintHelper;
 import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -44,6 +41,10 @@ import static android.content.Context.PRINT_SERVICE;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.print.PrintJobInfo.STATE_COMPLETED;
 import static de.appplant.cordova.plugin.printer.PrintContent.ContentType.UNSUPPORTED;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.print.PrintHelper;
 
 /**
  * Provides high level methods for printing.
@@ -222,13 +223,17 @@ class PrintManager
                 adapter = view.createPrintDocumentAdapter();
             }
 
-            PrintProxy proxy = new PrintProxy(adapter, () -> callback.onFinish(isPrintJobCompleted(jobName)));
+            PrintProxy proxy = new PrintProxy(adapter, () -> onFinish(isPrintJobCompleted(jobName)));
 
             printAdapter(proxy, options);
         });
     }
 
-    /**
+  private void onFinish(boolean printJobCompleted) {
+
+  }
+
+  /**
      * Prints the provided PDF document.
      *
      * @param path     The path to the file to print.
