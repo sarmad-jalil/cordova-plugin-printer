@@ -2,3 +2,5 @@
 sdcard.img.lock
 /platforms
 sdcard.img
+config.bat
+node_modules
